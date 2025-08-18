@@ -30,6 +30,26 @@
 	Creado por Linus Torvalds en 1991, siguiendo el concepto de código abierto basado en UNIX. Se compone de varias partes, siendo el kernel el principal de ellos, puesto que es capaz de gestionar los recursos y permite comunicar el hardware y software del equipo.
 	
 	\subsection*{Arquitectura}
+	La arquitectura de este sistema operativo se llama GNU/Linux, principalmente se divide en dos secciones el espacio del kernel y el espacio de usuario. Cada uno tiene partes diferentes, que ha continuación se enuncian.
+	
+	\subsubsection*{Espacio del kernel}
+	
+	\emph{Kernel:} es el programa central del sistema, inicia por el boot loader que es el encargado de las interacciones basicas del hardware con el sistema, ya sean tareas de lectura y escritura en disco duro, memoria RAM, controlares de dispositivos, asi como proporcionar un entorno virtual para iniciar las aplicaciones.
+	\\
+	\\
+	\emph{Subsistemas:} son los programas que vienen instalados de manera predeterminada en el sistema, que se encargan de gestionar el acceso remoto, tener un bus central de mensajes/notificaciones y ejecutan acciones basadas en eventos de hardware o red.
+	\\
+	\\
+	\emph{Herramienta de linea de comandos:} son programas pequeños que se ejecutan dentro de la linea de comandos o emulador de terminal, son capaces de editar texto, descargar archivos o administración del sistema.
+	\\
+	\\
+	\emph{Inter Process Communication:} se encarga de tener una comunicación entre el kernel y las aplicaciones, por medio de un segmento compartido de memoria o un pequeño canal de comunicación creado por las aplicaciones para intercambio de datos. Otro método es a través del bus central de mensajes donde hay un intercambio de mensajes para comunicar todo el sistema. 
+	
+	\subsubsection*{Espacio del usuario}
+	
+	\emph{Librerías GNU:} son programas pequeños que controlar las ventanas, gráficos o lectura/escritura de las aplicaciones. Están desarrolladas en lenguaje C y cada una de ellas puede tener mas librerías para poder ser utilizada.
+	
+	\emph{Aplicaciones:} son todos aquellos programas finales, con los que el usuario puede interactuar con el sistema. Entre ellos están los navegadores web, editores de texto, reproductores de video o sonido, visualizadores de imágenes/videos, editores de imagen/video, entre muchos otros mas.
 	
 	\subsection*{¿Qué es una distribución?}
 	
@@ -49,5 +69,8 @@
 	\\
 	\\
 	Floriano, J.(2024). ¿Qué es el sistema Linux y cuáles son sus ventajas?, BlogSEAS, consultado el 17 de agosto de 2025, recuperado de https://www.seas.es/blog/informatica/que-es-el-sistema-linux-y-cuales-son-sus-ventajas/
+	\\
+	\\
+	Denisse. (2016). Una mirada dentro del núcleo de Linux, lignux.com, consultado el 18 de agosto de 2025, recuperado de https://lignux.com/una-mirada-dentro-del-nucleo-linux/
 	
 \end{document}
