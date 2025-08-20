@@ -123,6 +123,74 @@
 	\section*{Administración}
 	
 	\section*{Networking}
+	\emph{Ping:} se utiliza para saber el estado de las interfaces de red instaladas en nuestro equipo, si hay un envió de paquetes quiere decir que tenemos una conexión fuera de nuestro entorno local, si existe una perdida revisar que pasa con la interfaz. El resultado de este comando se divide en dos partes: la secuencia de envió individual por paquete y las estadísticas globales del comando.
+	\\
+	\\
+	\emph{Información individual:} muestra el envio de paquetes uno a uno.
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Atributo & Descripción \\
+		\hline
+		icmp\_seq & numero de la secuencia en el envió de paquetes para el Internet Control Message Protocol, este aumenta en 1 por cada paquete enviado, si existe un salto en la numeración nos indica un paquete perdido. \\
+		\hline
+		ttl(Time To Live) & es el número máximo de saltos que puede viajar el paquete antes de descartarse, por cada router visitado este valor disminuye en 1, si se llega a 0 se descarta el paquete y se envía un mensaje de error. \\
+		\hline
+		time (rtt) & tiempo de ida y vuelta que tarda un paquete en llegar al destino y volver, medido en milisegundos (ms) \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{Información general:} estadísticas globales del proceso de envió para los paquetes, lleva el nombre de rtt(Round Trip Time)
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Atributo & Descripción \\
+		\hline
+		packets transmitted & número total de paquetes enviados por ICMP \\
+		\hline
+		received & número de paquetes recibidos \\
+		\hline
+		packet loss (\%) & porcentaje de paquetes perdidos en la transmisión \\
+		\hline
+		time (ms) & tiempo total transcurrido de la prueba de ping \\
+		\hline
+		min & menor tiempo de envió y recepción \\
+		\hline
+		max & máximo tiempo de envió y recepción \\
+		\hline
+		avg & tiempo promedio del envió y recepción de todos los paquetes \\
+		\hline
+		mdev & desviación estándar nos indica que tanto varían los tiempos de envió, si el valor es pequeño hay una conexión estable y un valor grande es una red inestable \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{Opciones para el comando ping}
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		ping IP/host & realiza un envió de paquetes en bucle hasta terminar el proceso \\
+		\hline
+		ping localhost & realiza un ping de manera local \\
+		\hline
+		ping -c n IP/host & hace un envió de n paquetes  \\
+		\hline
+		ping -i n IP/host & envía los paquetes en el intervalo de cada n segundos  \\
+		\hline
+		ping -f IP/host & envía los paquetes lo mas rápido que permite la interfaz de red, si se cuenta con un limite de velocidad este comando no realiza nada y manda un mensaje \\
+		\hline
+		ping -s n IP/host & cambia el tamaño de Bytes de los paquetes a enviar \\
+		\hline
+		ping -q IP/host & realiza el ping y al finalizar solo muestra la información de resumen \\
+		\hline
+		ping -w n IP/host & se detiene el envió de paquetes pasados n segundos \\
+		\hline
+	\end{tabular}
 	
 	\section*{Referencias}
 	FYCGROUP. UNIX: La simplicidad del ingenio, fyccorp.com consultado el 17 de agosto de 2025, recuperado de https://fyccorp.com/unix-la-simplicidad-del-ingenio/	
