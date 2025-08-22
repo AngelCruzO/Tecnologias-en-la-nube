@@ -118,10 +118,112 @@
 	
 	\subsection*{Comparativa}
 	
-	\section*{Comandos basicos}
+	\section*{Comandos de navegación}
+	\emph{ls:}
+	\\
+	\emph{cd:}
+	\\
+	\emph{pwd}
+	\\
+	\emph{whoami:}
+	\\
+	\emph{find:}
+	
+	\subsection*{Manipulación de ficheros}
+	\emph{mkdir:}
+	\\
+	\emph{rmdir:}
+	\\
+	\emph{rm:}
+	\\
+	\emph{cp:}
+	\\
+	\emph{mv:}
+	\\
+	\emph{touch:}
 	
 	\section*{Visualización de texto}
-	\emph{cat:} 
+	\emph{cat:} nos proporciona una interfaz sencilla para administración de ficheros de texto.
+	\\ 
+	\\
+	\begin{tabular}{|c|p{7cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		cat nombreFichero & muestra el contenido del fichero en la terminal \\
+		\hline
+		cat > nombreFichero & crea o sobrescribe un fichero, se habilita un cursor para introducir texto, al finalizar colocar la combinación de teclas Ctrl + d \\
+		\hline
+		cat >> nombreFichero & habilita un cursor para introducir texto a un fichero existente, al finalizar colocar la combinación de teclas Ctrl + d \\
+		\hline
+		cat -n nombreFichero & muestra el contenido con el numero de linea del lado izquierdo \\
+		\hline
+		cat -b nombreFichero & muestra el numero de linea solo a las que no están vacías \\
+		\hline
+		cat nombrefIchero > nuevoFichero & genera un fichero nuevo desde otro ya existente \\
+		\hline
+		cat nombreFichero nombreFichero > nuevoFichero & genera un fichero nuevo combinando dos o mas ficheros \\
+		\hline
+		cat -s nombreFichero & muestra el contenido eliminando la mayor parte de lineas vacias \\
+		\hline
+		cat -E nombreFichero & muestra los finales de linea con el simbolo \$ \\
+		\hline
+		cat -T nombreFichero & muestra las tabulaciones con el simbolo \textasciicircum I \\
+		\hline
+	\end{tabular}
+	\emph{less:} muestra el texto de un fichero en la terminal, se activa con el comando "less nombreFichero".
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Opción & Descripción \\
+		\hline
+		-c & limpia pantalla \\
+		\hline
+		+n & inicia el archivo desde la linea n \\
+		\hline
+		:p & si existe un fichero anterior en el buffer, se puede examinar \\
+		\hline
+		:d & elimina del buffer el fichero actual \\
+		\hline
+		e & navegación linea por linea \\
+		\hline
+		-S & deshabilita el auto ajuste de lineas \\
+		\hline
+		-g & resalta la coincidencia actual \\
+		\hline
+		-M & muestra datos de navegación del fichero \\
+		\hline
+		ng & Salta a la linea numero n \\
+		\hline
+		= & proporciona información del fichero \\
+		\hline
+		q & salir del entorno \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{more:} muestra contenido de texto de un fichero, pero en un sistema de paginación, donde se desplaza pagina por pagina el contenido.
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		more nombreFichero & se abre el fichero correspondiente \\
+		\hline
+		more nombreFichero nombreFichero & apertura de mas de un fichero \\
+		\hline
+		more -n nombreFichero & al abrir muestra el numero de linea del lado izquierdo \\
+		\hline
+		more -valor nombreFichero & muestra un numero especifico de lineas \\
+		\hline
+		more +/[ER] & se abre el fichero en la primera coincidencia \\
+		\hline
+	\end{tabular}
+	\emph{echo:}
+	\\
+	\emph{grep:}
 	
 	\section*{Administración}
 	
