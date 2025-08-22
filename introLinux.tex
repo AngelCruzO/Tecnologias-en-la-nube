@@ -171,6 +171,8 @@
 		cat -T nombreFichero & muestra las tabulaciones con el simbolo \textasciicircum I \\
 		\hline
 	\end{tabular}
+	\\
+	\\
 	\emph{less:} muestra el texto de un fichero en la terminal, se activa con el comando "less nombreFichero".
 	\\
 	\\
@@ -221,9 +223,75 @@
 		more +/[ER] & se abre el fichero en la primera coincidencia \\
 		\hline
 	\end{tabular}
-	\emph{echo:}
+	\emph{echo:} este comando sirve para imprimir texto o variables en la terminal
 	\\
-	\emph{grep:}
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		echo "texto" & imprime el texto que esta dentro de las comillas \\
+		\hline
+		echo \$variable & imprime el contenido de la variable especificada \\
+		\hline
+		echo -e "caracterEscape" & tiene como salida la acción del carácter de escape que se tiene como argumento \\
+		\hline
+	\end{tabular}
+	\\
+	Dentro de las opciones de caracteres de escape se tienen los siguientes:
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Opción & descripción \\
+		\hline
+		\textbackslash a & emite un sonido de alerta \\
+		\hline
+		\textbackslash c & suprime el salto de texto \\
+		\hline
+		\textbackslash n & salto de linea \\
+		\hline
+		\textbackslash r & vuelve al inicio de la linea \\
+		\hline
+		\textbackslash t & realiza una tabulación horizontal \\
+		\hline
+		\textbackslash v & realiza una tabulación vertical \\
+		\hline
+		\textbackslash \textbackslash & imprime la barra invertida \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{grep:} busca información en base a patrones o expresiones regulares
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		grep patron nombreFichero & busca el patrón especificado en el fichero \\
+		\hline
+		grep patron nombreFichero nombreFichero & busca el patrón especificado en dos o mas ficheros, los nombres tienen que ir separados por un espacio \\
+		\hline
+		grep -w patron nombreFichero & si coincide el patrón de búsqueda regresa un True \\
+		\hline
+		grep -i patron nombreFichero & busca el patrón deshabilitando sensitive case, no distingue mayúsculas y minúsculas \\
+		\hline
+		grep -c patron nombreFichero & devuelve el numero coincidencias en el texto \\
+		\hline
+		grep -v patron nombreFichero & omite las lineas de coincidencia \\
+		grep -n patron nombreFichero & si encuentra coincidencias muestra el numero de la linea donde se encontró \\
+		\hline
+		grep -L patron & busca el patron en los ficheros del directorio actual y si encuentra coincidencias, muestra el nombre del Fichero \\
+		\hline
+		grep -e expresionRegular \\ busca la expresión regular en el Fichero \\
+		\hline
+		grep -e expresionRegular -e expresionRegular & búsqueda de varias expresiones regulares en el fichero \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	El comando grep como se muestra en la tabla es capaz de realizar por medio de expresiones regulares, estas son patrones no específicos que pueden ser construidos, conforme a cierto criterio, para realizar búsquedas complejas con pocos caracteres de búsqueda. Puden consultar mas información en el siguiente enlace https://tinyurl.com/24g3hzpk
 	
 	\section*{Administración}
 	
@@ -231,7 +299,7 @@
 	\emph{Ping:} se utiliza para saber el estado de las interfaces de red instaladas en nuestro equipo, si hay un envió de paquetes quiere decir que tenemos una conexión fuera de nuestro entorno local, si existe una perdida revisar que pasa con la interfaz. El resultado de este comando se divide en dos partes: la secuencia de envió individual por paquete y las estadísticas globales del comando.
 	\\
 	\\
-	\emph{Información individual:} muestra el envio de paquetes uno a uno.
+	\emph{Información individual:} muestra el envió de paquetes uno a uno.
 	\\
 	\begin{tabular}{|c|p{8cm}|}
 		\hline
@@ -356,8 +424,7 @@
 	\\
 	\\
 	en ip tunnel se tienen las siguientes opciones:
-	\\
-	\\
+
 	\begin{itemize}
 		\item IPIP: túnel de IP sobre IP
 		\item sit: túneles para IPv6
