@@ -146,7 +146,7 @@
 	\emph{cat:} nos proporciona una interfaz sencilla para administración de ficheros de texto.
 	\\ 
 	\\
-	\begin{tabular}{|c|p{7cm}|}
+	\begin{tabular}{|p{7cm}|p{7cm}|}
 		\hline
 		Comando & Descripción \\
 		\hline
@@ -265,7 +265,7 @@
 	\emph{grep:} busca información en base a patrones o expresiones regulares
 	\\
 	\\
-	\begin{tabular}{|c|p{8cm}|}
+	\begin{tabular}{|c|p{7cm}|}
 		\hline
 		Comando & Descripción \\
 		\hline
@@ -284,7 +284,7 @@
 		\hline
 		grep -L patron & busca el patron en los ficheros del directorio actual y si encuentra coincidencias, muestra el nombre del Fichero \\
 		\hline
-		grep -e expresionRegular \\ busca la expresión regular en el Fichero \\
+		grep -e expresionRegular & busca la expresión regular en el Fichero \\
 		\hline
 		grep -e expresionRegular -e expresionRegular & búsqueda de varias expresiones regulares en el fichero \\
 		\hline
@@ -294,6 +294,87 @@
 	El comando grep como se muestra en la tabla es capaz de realizar por medio de expresiones regulares, estas son patrones no específicos que pueden ser construidos, conforme a cierto criterio, para realizar búsquedas complejas con pocos caracteres de búsqueda. Puden consultar mas información en el siguiente enlace https://tinyurl.com/24g3hzpk
 	
 	\section*{Administración}
+	
+	\section*{Permisos}
+	\emph{chmod:} este comando a su traducción al español seria cambio de modo, nos proporciona el cambio de permisos tanto a ficheros, asi como a directorios.
+	\\
+	Para realizar cambio se utilizan las siguientes clases usuario (u), grupo (g), otros (o) y todas las clases (a), a su vez se tienen tres permisos importantes que con lectura (r), escritura (w) y ejecución (x). Entonces para poder asignar estos permisos a los ficheros o directorios se tienen los siguientes operadores:
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Operador & Descripción \\
+		\hline
+		+ & asigna permisos a la clase correspondiente \\
+		\hline
+		- & elimina permisos a la clase correspondiente \\
+		\hline
+		= & se renuevan los permisos, sin importar los que se tenían antes \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	También es posible utilizar una combinación de números para colocar permisos, la sintaxis para poder hacerlo es a través de una cantidad de tres dígitos donde cada uno representa la clase con respecto al sistema ugo. En la siguiente tabla se muestra la combinación de permisos, conforme a la numeración en binario del 0 al 7:
+	\\
+	\\
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		r & w & x & decimal & Permiso \\
+		\hline
+		0 & 0 & 0 & 0 & ningun permiso \\
+		\hline
+		0 & 0 & 1 & 1 & solo ejecución \\
+		\hline
+		0 & 1 & 0 & 2 & solo escritura \\
+		\hline
+		0 & 1 & 1 & 3 & ejecución y escritura \\
+		\hline
+		1 & 0 & 0 & 4 & solo lectura \\
+		\hline
+		1 & 0 & 1 & 5 & lectura y ejecución \\
+		\hline
+		1 & 1 & 0 & 6 & lectura y escritura \\
+		\hline
+		1 & 1 & 1 & 7 & todos los permisos \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	Existen opciones para el comando, las cuales son:
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Opción & Descripción \\
+		\hline
+		-R & modifica los permisos de forma recursiva para todos los ficheros y subdirectorios del directorio principal \\
+		\hline
+		-v & después de terminar la ejecución se realiza el diagnostico de los ficheros procesados \\
+		\hline
+		-c & después de terminar la ejecución muestra un diagnostico para los ficheros modificados \\ 
+		\hline
+		-f & no muestra los mensajes de error \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{chown y chgrp:} ambos comandos funcionan de manera similar con la diferencia en el tipo de cambio que realizan, chown cambiar le nombre de propietario/grupo, mientras que chgrp solo cambia el grupo. Para ambos casos bastan con proporcionan el nombre o el ID asociado al propietario o grupo.
+	\\
+	\\
+	\begin{tabular}{|p{7cm}|p{7cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		chown nombrePropietario nombreFichero & cambia el propietario del fichero \\
+		\hline
+		chown nombrePropietario nombreDirectorio & cambia el propietario del directorio \\
+		\hline
+		chown nombrePropietario:nombreGrupo nombreFichero/Directorio & cambia el propietario y el grupo del fichero o directorio \\
+		\hline
+		chgrp nombreGrupo nombreFichero/Directorio & cambia el grupo del fichero o directorio \\
+		\hline
+	\end{tabular}
+	
 	
 	\section*{Networking}
 	\emph{Ping:} se utiliza para saber el estado de las interfaces de red instaladas en nuestro equipo, si hay un envió de paquetes quiere decir que tenemos una conexión fuera de nuestro entorno local, si existe una perdida revisar que pasa con la interfaz. El resultado de este comando se divide en dos partes: la secuencia de envió individual por paquete y las estadísticas globales del comando.
