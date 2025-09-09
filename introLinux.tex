@@ -136,9 +136,76 @@
 	\\
 	\emph{rm:}
 	\\
-	\emph{cp:}
+	\emph{cp:} este comando permite copiar ficheros en el mismo directorio o subdirectorio.
 	\\
-	\emph{mv:}
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		cp nombreFichero rutaDestino & copia el fichero en el directorio de destino con el mismo nombre del fichero de origen \\
+		\hline
+		cp nombreFichero1 nombreFichero2 & copia los ficheros que están separados por espacio en el directorio de destino con sus mismos nombres de origen \\
+		\hline
+		cp nombreFichero rutaDestino/nuevoNombre & copia el fichero de origen en el directorio de destino, pero con un nombre diferente \\
+		\hline
+		cp nombreFichero nuevoFichero & se copia el contenido del fichero de origen con un nuevo nombre en el mismo directorio \\
+		\hline
+		cp -a nombreFichero rutaDestino & se copia el fichero con los mismos permisos y metadatos que vienen asociados a el \\
+		\hline
+		cp -b nombreFichero rutaDestino & crea una copia en el buffer, los ficheros tienen el mismo nombre pero diferente contenido \\
+		\hline
+		cp -d nombreFichero rutaDestino & copia los enlaces simbólicos que se asocian al fichero \\
+		\hline
+		cp -f nombreFichero rutaDestino & sobrescribe el fichero al momento de copiar \\
+		\hline
+		cp -i nombreFichero rutaDestino & muestra un mensaje de advertencia antes de sobrescribir, acepta como respuesta y (si) y n (no) \\
+		\hline
+		cp -l nombreFichero rutaDestino & crea un enlace duro en vez de una copia \\
+		\hline
+		cp -n nombreFichero rutaDestino & los ficheros existentes no se sobrescriben \\
+		\hline
+		cp -p nombreFichero rutaDestino & se heredan todos los atributos del fichero original \\
+		\hline
+		cp -P nombreFichero rutaDestino & se guardan los enlaces simbólicos del fichero al copiar \\
+		\hline
+		cp -r directorioOrigen directorioDestino & copia de manera recursiva el contenido de uno o varios directorios en otro fichero, este fichero de destino no existe lo crea \\
+		\hline
+		cp -s nombreFichero rutaDestino & crea un enlace simbolico para el fichero original \\
+		\hline
+		cp -S nombreFichero rutaDestino & sobrescribe el backup del fichero \\
+		cp -u nombreFichero rutaDestino & se copia el fichero si y solo si el fichero de origen es mas antiguo que el de destino \\
+		\hline
+		cp -v nombreFichero rutaDestino & emite un mensaje de alerta cuando termina el proceso \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{mv:} con este comando se pueden mover ficheros y directorios
+	\\
+	\\
+	\begin{tabular}{|p{7cm}|p{7cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		mv nombreFichero/nombreDirectorio directorioDestino & mueve ficheros o directorios a un directorio destino \\
+		\hline
+		mv -f nombreFichero/nombreDirectorio directorioDestino & mueve ficheros o directorios forzar la sobrescritura \\
+		\hline
+		mv -i nombreFichero/nombreDirectorio directorioDestino & antes de mover ficheros o directorios, pregunta si se desea sobrescribir \\
+		\hline
+		mv -u nombreFichero/nombreDirectorio directorioDestino & mueve ficheros o directorios, si y solo si el origen es mas antiguo que el destino \\
+		\hline
+		mv -v nombreFichero/nombreDirectorio directorioDestino & manda un mensaje al terminar el proceso \\
+		\hline
+		mv nombreFichero/nombreDirectorio nuevoNombreFichero/nuevoNombreDirectorio & cambia el nombre del archivo de origen \\
+		\hline
+		mv ER directorioDestino & mueve todo aquello que coincida con la expresión regular dada a un directorio destino \\
+		\hline
+		mv -b nombreFichero/nombreDirectorio directorioDestino & antes de mover el fichero o directorio, realiza una copia de seguridad, siempre y cuando exista el origen \\
+		\hline
+	\end{tabular}
+	\\
 	\\
 	\emph{touch:}
 	
@@ -291,8 +358,50 @@
 	\end{tabular}
 	\\
 	\\
-	El comando grep como se muestra en la tabla es capaz de realizar por medio de expresiones regulares, estas son patrones no específicos que pueden ser construidos, conforme a cierto criterio, para realizar búsquedas complejas con pocos caracteres de búsqueda. Puden consultar mas información en el siguiente enlace https://tinyurl.com/24g3hzpk
-	
+	El comando grep como se muestra en la tabla es capaz de realizar por medio de expresiones regulares, estas son patrones no específicos que pueden ser construidos, conforme a cierto criterio, para realizar búsquedas complejas con pocos caracteres de búsqueda. Pueden consultar mas información en el siguiente enlace https://tinyurl.com/24g3hzpk
+	\\
+	\\
+
+	\section*{Compresión y descompresión}
+	La compresión de ficheros o directorios nos es util cuando queremos enviar, subir o descargar una gran cantidad de información pero sin tener el tamaño completo, por lo que se ocupan comandos para comprimir y reducir esta cantidad a un poco mas accesible.
+	\\
+	\\
+	tar nombreFichero.tsr.gz directorio/fichero
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Opción & Descripción \\
+		\hline
+		-z & comprime un fichero o directorio usando gzip \\
+		\hline
+		-c & crear un nuevo archivo \\
+		\hline
+		-v & muestra el porcentaje del proceso de comprensión \\
+		\hline
+		-f & nombre del fichero \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	gzip -n nombreFichero
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Opción & Descripción \\
+		\hline
+		-n & valor del 1 al 9, significa el nivel de compresión que debe tener el archivo final \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	zip nombreFichero.zip fichero/directorio
+	\\
+	\\
+	rar -a nombreFichero.rar fichero/directorio
+	\\
+	\\
 	\section*{Administración}
 	
 	\section*{Permisos}
