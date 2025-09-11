@@ -366,7 +366,7 @@
 	La compresión de ficheros o directorios nos es util cuando queremos enviar, subir o descargar una gran cantidad de información pero sin tener el tamaño completo, por lo que se ocupan comandos para comprimir y reducir esta cantidad a un poco mas accesible.
 	\\
 	\\
-	tar nombreFichero.tsr.gz directorio/fichero
+	tar nombreFichero.tar.gz directorio/fichero
 	\\
 	\\
 	\begin{tabular}{|c|p{8cm}|}
@@ -402,6 +402,51 @@
 	rar -a nombreFichero.rar fichero/directorio
 	\\
 	\\
+	Una vez teniendo un fichero o directorio comprimido se puede distribuir para su uso, pero no es posible utilizarlo de manera directa, ya que el formato con el que este comprimido en ocasiones no es posible acceder a estos ficheros, por lo que se utilizan comandos de descompresión como los siguientes:
+	\\
+	\\
+	tar -xvzf nombreFichero.tar.gz
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Opción & Descripción \\
+		\hline
+		-x & extrae el contenido del fichero comprimido \\
+		\hline
+		-v & muestra el porcentaje del proceso de descompresión \\
+		\hline
+		-f & nombre del fichero \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	gzip -d nombreFichero.gz o bzip2 -d nombreFichero.bz2
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Opción & Descripción \\
+		\hline
+		-d & descompresión del fichero \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	unzip nombreFichero.zip
+	\\
+	\\
+	rar -x nombreFichero.rar
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Opción & Descripción \\
+		\hline
+		-x & extrae el contenido del fichero comprimido \\
+		\hline
+	\end{tabular}
+	
 	\section*{Administración}
 	
 	\section*{Permisos}
@@ -745,6 +790,33 @@
 		--no-parent & no sigue enlaces fuera del directorio principal del dominio \\
 		\hline
 	\end{tabular}
+	
+	\section*{Principales directorios en Linux}
+	Dentro de cualquier distribución basada en el kernel de Linux, tenemos un sistema de archivos el cual contiene directorios específicos para el funcionamiento del sistema operativo, la siguiente tabla menciona los directoios que se utilizan con mayor frecuencia.
+	\\
+	\\
+	\begin{tabular}{|c|p{9cm}|}
+		\hline
+		Directorio & Descripción \\
+		\hline
+		/bin & ficheros binarios para ejecución de las aplicaciones del sistema \\
+		\hline
+		/etc & contiene los ficheros de configuración y scripts de arranque del sistema \\
+		\hline
+		/home & contiene los directorios personales para cada usuarios, algunos de ellos son descargas, escritorio, imagenes, entre otros \\
+		\hline
+		/var & ficheros con variables de registro y bases de datos \\
+		\hline
+		/usr & contiene los ficheros que puede tener acceso un usuario, así como aplicaciones \\
+		\hline
+		/tmp & guarda ficheros temporales que necesitan las aplicaciones para instalaciones, configuraciones u otro motivo \\
+		\hline
+		/root & contiene los directorios del superusuario, los cuales tienen aplicaciones, configuraciones usuarios, scripts de arranque, ficheros del kernel \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	Para poder acceder a estos directorios basta con utilizar el comando cd y mandar como argumento el nombre del directorio a acceder, teniendo en cuento colocar / al inicio del nombre.
 	
 	\section*{Referencias}
 	FYCGROUP. UNIX: La simplicidad del ingenio, fyccorp.com consultado el 17 de agosto de 2025, recuperado de https://fyccorp.com/unix-la-simplicidad-del-ingenio/	
