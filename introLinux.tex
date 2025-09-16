@@ -401,10 +401,123 @@
 	\\
 	rar -a nombreFichero.rar fichero/directorio
 	\\
-	\\
-	\section*{Administración}
+	\\	
 	
 	\section*{Permisos}
+	\emph{useradd:} crea usuarios para el sistema, al ser un comando que realiza cambios en archivos de configuración es necesario utilizar sudo al inicio.
+	\\
+	\\
+	\begin{tabular}{|p{8cm}|p{6cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		sudo useradd nombreUsuario & se crea el usuario y grupo con el nombre proporcionado \\
+		\hline
+		sudo useradd -c "comentario" nombreUsuario & agrega un comentario para identificar la cuenta del usuario \\
+		\hline
+		sudo useradd -d /usr/nombreUsuario nombreUsuario & cambia el directorio inicial por uno personalizado \\
+		\hline
+		sudo useradd -s /bin/nombreShell nombreUsuario & asigna el tipo de shell que usara la cuenta \\
+		\hline
+		sudo useradd -u valor nombreUsuario & asigna el UID del usuario con el que siempre se identificara \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{usermod:} cambia propiedades de una cuenta ya existente, se utiliza sudo al inicio por cambios en archivo de configuración
+	\\
+	\\
+	\begin{tabular}{|p{7cm}|p{7cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		sudo usermod -l nombreNuevo nombreAnterior & cambio en el nombre de usuario \\
+		\hline
+		sudo usermod -d /home/nombreDirectorio nombreUsuario & cambia el nombre del directorio Home, la ruta no necesariamente debe ser Home puede utilizarse cualquiera, ademas si se incluye la opción -m se mueven todos los ficheros al nuevo directorio \\
+		\hline
+		sudo usermod -c "nuevoComentario" nombreUsuario & cambia el comentario que tenia la cuenta \\
+		\hline
+		sudo usermod -s /bin/nombreShell nombreUsuario & cambia la shell que utiliza el usuario por otra \\
+		\hline
+		sudo usermod -g IDGrupo nombreUsuario & cambia el grupo al que pertenece, colocando el ID del grupo \\
+		\hline
+		sudo usermod -L nombreUsuario & bloquea la cuenta proporcionado como argumento \\
+		\hline
+		sudo usermod -U nombreUsuario & desbloquea la cuenta que se proporciono como argumento \\
+		\hline
+		sudo usermod -e fecha nombreUsuario & se desactiva la cuenta llegando a la fecha indicada \\
+		\hline
+		sudo usermod -f numeroDias nombreUsuario & número de días que una cuenta queda inactiva, después de que su contraseña caduque \\
+		\hline
+		sudo usermod -a -G nombreGrupo nombreUsuario & su agrega el usuario a otros grupos que no sea el suyo, si es mas de un grupo se separan con comas \\
+		\hline
+		sudo usermod -aG sudo nombreUsuario & asigna al usuario privilegios de administrador \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{groupadd:} utilizado para crear grupos, si se necesitan mas grupos deben separarse con comas
+	\\
+	\\
+	sudo groupadd nombreGrupo
+	\\
+	\\
+	\emph{groupmod:} este comando nos proporciona el poder cambiar propiedades del grupo, al tener un cambio en los archivos de configuración se debe utilizar sudo
+	\\
+	\\
+	\begin{tabular}{|c|p{6cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		sudo groupmod -go valor nombreGrupo & cambia el ID del grupo utilizando la opción -o para que se pueda compartir con otros grupos \\
+		\hline
+		sudo groupmod -n nombreNuevo nombreAnterior & cambia el nombre del grupo \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{gpasswd:} este comando sirve para gestionar las contraseñas en los grupos
+	\\
+	\\
+	\begin{tabular}{|c|p{6cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		sudo gpasswd nombreGrupo & asigna una contraseña al grupo \\
+		\hline
+		sudo gpasswd -r nombreGrupo & elimina la contraseña que se asigno a ese grupo \\
+		\hline
+		sudo gpasswd -a nombreUsuario nombreGrupo & asigna uno varios usuarios separados por comas al grupo \\
+		\hline
+		sudo gpasswd -d nombreUsuario nombreGrupos & elimina el usuario del grupo especificado \\
+		\hline
+		sudo gpasswd -A nombreUsuario nombreGrupo & asigna como administrador al usuario especificado \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{userdel:} permite eliminar usuarios del sistema, se necesita utilizar sudo para realizar cambios en los archivos de configuración
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		sudo usedel nombreUsuario & elimina el usuario dado como argumento \\
+		\hline
+		sudo userdel -r nombreUsuario & elimina el usuario con todos los ficheros y directorios asociados a el \\
+		\hline
+		sudo userdel -f nombreUsuario & elimina el usuario con todos los ficheros y directorios asociados a el, sin importar si hay una sesión activa \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{passwd:} se puede asignar una contraseña para proteger la cuenta del usuario \\
+	\\
+	\\
+	passwd nombreUsuario
+	\\
+	\\
 	\emph{chmod:} este comando a su traducción al español seria cambio de modo, nos proporciona el cambio de permisos tanto a ficheros, asi como a directorios.
 	\\
 	Para realizar cambio se utilizan las siguientes clases usuario (u), grupo (g), otros (o) y todas las clases (a), a su vez se tienen tres permisos importantes que con lectura (r), escritura (w) y ejecución (x). Entonces para poder asignar estos permisos a los ficheros o directorios se tienen los siguientes operadores:
@@ -466,6 +579,21 @@
 		\hline
 	\end{tabular}
 	\\
+	\\
+	\emph{umask:} es utilizado para controlar la mascara de como es que se asignan los permisos para la creación de archivos, es decir el valor de permisos que tendrán al momento de ser creados
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		umask & muestra el valor de la mascara actual \\
+		\hline
+		umask -S & muestra el valor en un formato de notación simbolica \\
+		\hline
+		umask valor & cambia el valor de la mascara, utilizando el codigo de permisos descrito en el comando chmod \\
+		\hline
+	\end{tabular}
 	\\
 	\emph{chown y chgrp:} ambos comandos funcionan de manera similar con la diferencia en el tipo de cambio que realizan, chown cambiar le nombre de propietario/grupo, mientras que chgrp solo cambia el grupo. Para ambos casos bastan con proporcionan el nombre o el ID asociado al propietario o grupo.
 	\\
