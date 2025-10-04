@@ -791,6 +791,90 @@
 		\hline
 	\end{tabular}
 	
+	\section*{Procesos}
+	Como en cualquier sistema operativo, los procesos son lo mas importante en su funcionamiento, sin estos las aplicaciones del sistema o de terceros no pueden ser utilizadas. Cada uno se identifica con un número conocido como PID. Para verificar que procesos estan activos se tiene el comando ps.
+	\\
+	\\
+	\emph{ps:} toma una instantánea de la tabla de procesos que se encuentran en ejecución, por lo que es estática y no muestra cambios en tiempo real. Los siguientes atributos se muestran en el despliegue en pantalla:
+	\\
+	\\
+	\begin{itemize}
+		\item PID: numero identificador para cada proceso
+		\item TTY: nombre del terminal
+		\item Time: tiempo de ejecución del proceso
+		\item CMD: nombre del comando que lanza el proceso 
+	\end{itemize}
+
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Comando & Descripción \\
+		\hline
+		ps -a & todos los procesos ejecutados, para todos los usuarios \\
+		\hline
+		ps -w & estadísticas del proceso (\% de CPU, RAM, codigo de estado y propietario) \\
+		\hline
+		ps -x & procesos que no se estan ejecutando en la terminal \\
+		\hline
+		ps -u usuario & todos los procesos en ejecución de un determinado usuario \\
+		\hline
+		ps -e ó ps -A & procesos activos en formato generico UNIX \\
+		\hline
+		ps -T & procesos activos que se ejecutan desde la terminal \\
+		\hline
+		ps -c proceso & filtra la lista por el nombre del proceso, asi como los procesos hijos \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{top:} utilizado para monitorear el uso de CPU en los procesos activos. Su orden es del consumo mas alto al mas bajo.
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Opción & Descripción \\
+		\hline
+		K PID & finalización de procesos, ingresando el PID \\
+		\hline
+		M & ordena la lista por uso de memoria \\
+		\hline
+		N & ordena la lista por PID \\
+		\hline
+		r & puede cambiar la prioridad de un proceso, valor por defecto 20, si es 0 la prioridad es mas alta \\
+		\hline
+		z & muestra los procesos en colores \\
+		\hline
+		d & cambia el intervalo de tiempo para el muestreo \\
+		\hline
+		c & proporciona la ruta absoluta de un proceso \\
+		\hline
+		q & salir de la interfaz \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{kill:} utilizado para operar con procesos; se pueden terminar, pausar o reanudar
+	\\
+	\\
+	\begin{tabular}{|c|p{8cm}|}
+		\hline
+		Señal & Descripción \\
+		\hline
+		kill -15 PID ó kill PID & señal de terminación ()SEGTERM default) \\
+		\hline
+		kill -9 PID & mata el proceso (SIGKILL) \\
+		\hline
+		kill -1 PID & reinicia el proceso (SIGHUP) \\
+		\hline
+		kill -2 PID & señal de interrupción (SIGINT) \\
+		\hline
+	\end{tabular}
+	\\
+	\\
+	\emph{pkill:} funciona como kill, utilizando el nombre del proceso
+	\\
+	\\
+	\emph{killall:} finaliza todos los procesos de un programa con una sola instrucción
+	
 	\section*{Principales directorios en Linux}
 	Dentro de cualquier distribución basada en el kernel de Linux, tenemos un sistema de archivos el cual contiene directorios específicos para el funcionamiento del sistema operativo, la siguiente tabla menciona los directoios que se utilizan con mayor frecuencia.
 	\\
